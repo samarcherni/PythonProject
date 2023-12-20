@@ -24,7 +24,7 @@ pipeline {
                 script {
                     // sh 'docker build -t dockerfile-linter -f Dockerfile.lint .'
                     // sh 'docker run --rm dockerfile-linter sh -c "hadolint --fail-level warning /Dockerfile"'
-                    sh 'docker run --rm -i hadolint/hadolint - < Dockerfile || true'
+                    sh 'docker run --rm -i hadolint/hadolint < Dockerfile || true'
                 }
             }
         }
