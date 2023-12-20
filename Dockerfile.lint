@@ -1,0 +1,5 @@
+FROM hadolint/hadolint:latest
+
+COPY Dockerfile /Dockerfile
+
+CMD ["hadolint", "/Dockerfile"]
