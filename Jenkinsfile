@@ -12,6 +12,14 @@ pipeline {
           url :'https://github.com/samarcherni/PythonProject.git'
       }
     }
+    stage('Install dependencies'){
+            steps{
+                nodejs('nodeJSInstallationName'){
+                    sh 'pip install --upgrade pip'
+                    sh 'pip install -r requirements.txt --user'
+                }
+            }
+        }
 
   }
 }
