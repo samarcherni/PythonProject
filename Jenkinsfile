@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     sh 'docker build -t dockerfile-linter -f Dockerfile.lint .'
-                    sh 'docker run --rm dockerfile-linter --fail-level warning'
+                    sh 'docker run --rm dockerfile-linter -- --fail-level warning'
                 }
             }
         }
