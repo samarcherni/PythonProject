@@ -41,6 +41,11 @@ pipeline {
             }
         }
     }
+    stage('Docker push image'){
+     steps{
+      sh 'docker push samarcherni/pythonproject:1.0'
+     }
+    }   
         }
 
   }
