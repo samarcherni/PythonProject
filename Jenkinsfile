@@ -18,6 +18,11 @@ pipeline {
                     sh 'pip install -r requirements.txt --user'
                 }
             }
+    stage('Docker build'){
+        steps{
+            sh 'docker build -t samarcherni/pythonproject:1.0 .'
+            }
+    }
         }
 
   }
