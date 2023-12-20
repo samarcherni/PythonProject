@@ -19,10 +19,11 @@ pipeline {
                 }
             }
 
-    stage('Lint Code') {
+    stage('Lint Dockerfile') {
             steps {
                 script {
-                    sh 'docker run --rm -v $(pwd):/app -w /app python:latest flake8'
+                    sh 'docker build -t dockerfile-linter -f Dockerfile.lint .'
+                    sh 'docker run --rm dockerfile-linter'
                 }
             }
         }
