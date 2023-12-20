@@ -33,6 +33,14 @@ pipeline {
             sh 'docker build -t samarcherni/pythonproject:1.0 .'
             }
     }
+
+    stage('Docker Login'){
+        steps{
+            withCredentials([usernamePassword(credentialsId: '0c6e53ac-b9a2-446f-9858-62607a350606', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+            sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+            }
+        }
+    }
         }
 
   }
